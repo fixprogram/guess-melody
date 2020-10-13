@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './components/App/App';
 
 const init = () => {
   ReactDOM.render(
-      <App />,
+      <App mistakes="3" time="10" onClick="function() {}" />,
       document.querySelector(`#root`)
   );
 };
