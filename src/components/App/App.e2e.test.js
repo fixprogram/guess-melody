@@ -9,9 +9,36 @@ it(`App is correctly rendered after relaunch`, () => {
   const clickHandler = jest.fn();
   const app = shallow(
       <App
-        mistakes={0}
-        time={0}
-        onClick={clickHandler} />
+        data={{
+          questions: [
+            {
+              type: `genre`,
+              genre: `hip-hop`,
+              answers: [
+                {
+                  src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback.ogg`,
+                  genre: `jazz`
+                }
+              ]
+            },
+            {
+              type: `artist`,
+              song: {
+                src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback.ogg`,
+                artist: `Lambert`
+              },
+              answers: [
+                {
+                  picture: `https://placehold.it/134x134`,
+                  artist: `Triss`
+                }
+              ]
+            },
+          ],
+          mistakes: 0,
+          time: 0
+        }}
+      />
   );
   const startButton = app.find(`button`);
   startButton.simulate(`click`);

@@ -2,27 +2,63 @@
 /* eslint-disable no-irregular-whitespace */
 import React from 'react';
 import PropTypes from 'prop-types';
+import WelcomeScreen from '../WelcomeScreen/WelcomeScreen';
+import GuessArtist from '../GuessArtist/GuessArtist';
+import GuessSong from '../GuessSong/GuessSong';
 
-const App = (props) => {
-  return (
-    <section className="welcome">
-      <div className="welcome__logo"><img src="img/melody-logo.png" alt="Угадай мелодию" width="186" height="83" /></div>
-      <button className="welcome__button" onClick={props.onClick}><span className="visually-hidden">Начать игру</span></button>
-      <h2 className="welcome__rules-title">Правила игры</h2>
-      <p className="welcome__text">Правила просты:</p>
-      <ul className="welcome__rules-list">
-        <li>За {props.time} минут нужно ответить на все вопросы.</li>
-        <li>Можно допустить {props.mistakes} ошибки.</li>
-      </ul>
-      <p className="welcome__text">Удачи!</p>
-    </section>
-  );
-};
+class App extends React.PureComponent {
+  static getScreen(question, props, onUserAnswer) {
+
+    if (question === -1) {
+      const {
+        time,
+        mistakes,
+      } = props.data;
+
+      return <WelcomeScreen time={time} mistakes={mistakes} onClick={onUserAnswer} />;
+    }
+
+    const questions = props.data.questions;
+    const currentQuestion = questions[question];
+
+    switch (currentQuestion.type) {
+      case `genre`: return <GuessSong question={currentQuestion} onAnswer={onUserAnswer} />;
+      case `artist`: return <GuessArtist answer={currentQuestion} onAnswer={onUserAnswer} />;
+    }
+
+    return null;
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      question: -1
+    };
+  }
+
+  render() {
+    const {
+      questions
+    } = this.props.data;
+
+    const {question} = this.state;
+
+    return App.getScreen(question, this.props, () => {
+      this.setState((prevState) => {
+        const nextIndex = prevState.question + 1;
+        const isEnd = nextIndex >= questions.length;
+        return {
+          ...prevState,
+          question: !isEnd ? nextIndex : -1,
+        };
+      });
+    });
+  }
+}
 
 App.propTypes = {
-  time: PropTypes.number.isRequired,
-  mistakes: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired
+  data: PropTypes.object.isRequired
 };
 
 export default App;
