@@ -22,7 +22,8 @@ it(`App is correctly rendered after relaunch`, () => {
         onAnswer={clickHandler} />
   );
   const startButton = app.find(`.game__submit`);
+  const gameForm = app.find(`.game__artist`);
   startButton.simulate(`click`);
-  expect(clickHandler).toHaveBeenCalledTimes(1);
+  expect(gameForm).toBeUndefined();
 }
 );

@@ -5,18 +5,22 @@ const data = {
       genre: `rock`,
       answers: [
         {
+          id: `id1`,
           src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback_-_If_Everyone_Cared_cropped.ogg`,
           genre: `pop`
         },
         {
+          id: `id2`,
           src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback_-_If_Everyone_Cared_cropped.ogg`,
           genre: `rock`
         },
         {
+          id: `id3`,
           src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback_-_If_Everyone_Cared_cropped.ogg`,
           genre: `k-pop`
         },
         {
+          id: `id4`,
           src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback_-_If_Everyone_Cared_cropped.ogg`,
           genre: `k-rock`
         }

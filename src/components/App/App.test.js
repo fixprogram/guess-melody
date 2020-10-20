@@ -9,30 +9,30 @@ it(`App correctly renders after relaunch`, () => {
           questions: [
             {
               type: `genre`,
-              genre: `hip-hop`,
+              genre: `classic`,
               answers: [
                 {
-                  src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback.ogg`,
-                  genre: `jazz`
+                  src: `https://upload.wikimedia.org/wikipedia/ru/e/e5.ogg`,
+                  genre: `rockk`
                 }
               ]
             },
             {
               type: `artist`,
               song: {
-                src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback.ogg`,
-                artist: `Lambert`
+                src: `https://upload.wikimedia.org/wikipedia/ru/e/e5.ogg`,
+                artist: `Yenifer`
               },
               answers: [
                 {
-                  picture: `https://placehold.it/134x134`,
-                  artist: `Triss`
+                  picture: `https://placehold.it/135x135`,
+                  artist: `Vesemir`
                 }
               ]
             },
           ],
-          mistakes: 0,
-          time: 0
+          mistakes: 1,
+          time: 2
         }}
       />
   ).toJSON();

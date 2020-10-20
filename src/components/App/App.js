@@ -48,10 +48,7 @@ class App extends React.PureComponent {
       this.setState((prevState) => {
         const nextIndex = prevState.question + 1;
         const isEnd = nextIndex >= questions.length;
-        return {
-          ...prevState,
-          question: !isEnd ? nextIndex : -1,
-        };
+        return {question: !isEnd ? nextIndex : -1};
       });
     });
   }
