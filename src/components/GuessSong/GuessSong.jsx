@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Audio from '../Audio/Audio';
 
-class GuessSong extends React.Component {
+export default class GuessSong extends React.Component {
   constructor(props) {
     super(props);
 
@@ -76,5 +76,3 @@ GuessSong.propTypes = {
   question: PropTypes.object.isRequired,
   onAnswer: PropTypes.func.isRequired
 };
-
-export default GuessSong;

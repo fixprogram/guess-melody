@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import WelcomeScreen from './WelcomeScreen';
 
-it(`App correctly renders after relaunch`, () => {
+it(`Wecome screen correctly renders after relaunch`, () => {
   const tree = renderer.create(
       <WelcomeScreen mistakes={0} time={0} onClick={jest.fn()} />
   ).toJSON();

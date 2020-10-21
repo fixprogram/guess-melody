@@ -5,26 +5,42 @@ import GuessSong from './GuessSong';
 
 Enzyme.configure({adapter: new Adapter()});
 
-it(`App is correctly rendered after relaunch`, () => {
+it(`When user genre question form is not sent`, () => {
+  const question = {
+    genre: `jazz`,
+    answers: [
+      {
+        id: `id1`,
+        src: `path`,
+        genre: `rock`
+      },
+      {
+        id: `id2`,
+        src: `path`,
+        genre: `jazz`
+      },
+      {
+        id: `id3`,
+        src: `path`,
+        genre: `classic`
+      },
+      {
+        id: `id4`,
+        src: `path`,
+        genre: `pop`
+      }
+    ]
+  };
   const clickHandler = jest.fn();
   const app = shallow(
       <GuessSong
-        genre ={`hip-hop`}
-        answers = { [
-          {
-            src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback.ogg`,
-            genre: `rap`
-          },
-          {
-            src: `https://upload.wikimedia.org/wikipedia/ru/e/e5/Nickelback.ogg`,
-            genre: `classic`
-          }
-        ] }
+        question={question}
         onAnswer={clickHandler} />
   );
-  const startButton = app.find(`.game__submit`);
-  const songForm = app.find(`.game__tracks`);
-  startButton.simulate(`click`);
-  expect(songForm).toBeUndefined();
+  const form = app.find(`form`);
+  const formSendPrevention = jest.fn();
+  form.simulate(`submit`, {
+    preventDefault: formSendPrevention
+  });
 }
 );

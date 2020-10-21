@@ -39,6 +39,6 @@ it(`App is correctly rendered after relaunch`, () => {
         }}
       />
   );
-  expect(app).anything();
+  expect(app).toBeDefined();
 }
 );

@@ -16,7 +16,7 @@ exports[`App correctly renders after relaunch 1`] = `
   </div>
   <button
     className="welcome__button"
-    onClick={[MockFunction]}
+    onClick={[Function]}
   >
     <span
       className="visually-hidden"
@@ -38,13 +38,13 @@ exports[`App correctly renders after relaunch 1`] = `
     className="welcome__rules-list"
   >
     <li>
-      За 
-      0
-       минут нужно ответить на все вопросы.
+      За 
+      2
+       минут нужно ответить на все вопросы.
     </li>
     <li>
       Можно допустить 
-      0
+      1
        ошибки.
     </li>
   </ul>

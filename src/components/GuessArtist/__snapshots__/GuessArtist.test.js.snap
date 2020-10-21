@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App correctly renders after relaunch 1`] = `
+exports[`When user artist song is not sent 1`] = `
 <section
   className="game game--artist"
 >
@@ -91,12 +91,15 @@ exports[`App correctly renders after relaunch 1`] = `
       >
         <button
           className="track__button track__button--play"
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio />
+          <audio
+            src="path"
+          />
         </div>
       </div>
     </div>
@@ -119,11 +122,11 @@ exports[`App correctly renders after relaunch 1`] = `
           htmlFor="answer-0"
         >
           <img
-            alt="321"
+            alt="Geralt"
             className="artist__picture"
             src="https://placehold.it/134x134"
           />
-          321
+          Geralt
         </label>
       </div>
       <div
@@ -141,11 +144,55 @@ exports[`App correctly renders after relaunch 1`] = `
           htmlFor="answer-1"
         >
           <img
-            alt="123"
+            alt="Triss"
             className="artist__picture"
             src="https://placehold.it/134x134"
           />
-          123
+          Triss
+        </label>
+      </div>
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="answer-2"
+          name="answer"
+          type="radio"
+          value="answer-2"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-2"
+        >
+          <img
+            alt="Lambert"
+            className="artist__picture"
+            src="https://placehold.it/134x134"
+          />
+          Lambert
+        </label>
+      </div>
+      <div
+        className="artist"
+      >
+        <input
+          className="artist__input visually-hidden"
+          id="answer-3"
+          name="answer"
+          type="radio"
+          value="answer-3"
+        />
+        <label
+          className="artist__name"
+          htmlFor="answer-3"
+        >
+          <img
+            alt="Vesemir"
+            className="artist__picture"
+            src="https://placehold.it/134x134"
+          />
+          Vesemir
         </label>
       </div>
       <button

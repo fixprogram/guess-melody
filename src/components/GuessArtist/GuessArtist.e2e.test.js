@@ -1,6 +1,9 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import Enzyme, {shallow} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import GuessArtist from './GuessArtist';
+
+Enzyme.configure({adapter: new Adapter()});
 
 it(`When user artist song is not sent`, () => {
   const answer = {
@@ -27,11 +30,16 @@ it(`When user artist song is not sent`, () => {
       }
     ]
   };
-  const tree = renderer.create(
+  const clickHandler = jest.fn();
+  const app = shallow(
       <GuessArtist
         answer={answer}
-        onAnswer={jest.fn()} />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+        onAnswer={clickHandler} />
+  );
+  const gameForm = app.find(`form`);
+  const formSendPrevention = jest.fn();
+  gameForm.simulate(`submit`, {
+    preventDefault: formSendPrevention
+  });
 }
 );

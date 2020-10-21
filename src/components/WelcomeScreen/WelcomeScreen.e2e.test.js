@@ -5,7 +5,7 @@ import WelcomeScreen from './WelcomeScreen';
 
 Enzyme.configure({adapter: new Adapter()});
 
-it(`App is correctly rendered after relaunch`, () => {
+it(`Wecome screen is correctly rendered after relaunch`, () => {
   const clickHandler = jest.fn();
   const app = shallow(
       <WelcomeScreen
